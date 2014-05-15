@@ -42,9 +42,12 @@ through
 
 	http://finance.yahoo.com/d/quotes.csv
 
-An unofficial set of documentation for this serives is available at:
+An unofficial set of documentation for this service is available at:
 
 	http://www.gummy-stuff.org/Yahoo-data.htm
 
+Unofficial documentation for the historical quote service is at:
 
+	https://code.google.com/p/yahoo-finance-managed/wiki/csvHistQuotesDownload
+	
 

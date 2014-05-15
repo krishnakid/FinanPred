@@ -23,7 +23,9 @@ STOCKS = ["CMG",
 		  "MSFT"
 		 ]
 
-print load.loadData(STOCKS)
+# single stock for testing purposes.
+STOCK = ["GOOG"]
 
-
+#print load.loadData(STOCKS)
+print load.loadHisData( ((3, 14, 2010),(8, 14, 2010)), STOCK)
 
