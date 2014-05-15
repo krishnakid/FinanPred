@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+########   TestFile   ##################
+# This is a RunFile for the FinanPred project as created by Rahul Dhodapkar.
+# Since the project is in Python, there is no real need for a Makefile, but
+# it will be used as a known utility for running test scripts and the like.
+#
+
+mongod --dbpath ../data/db &				# open database
+DB_PID=$!									
+./main 										
+echo $DB_PID
+kill -9 $DB_PID &							# close database
+
