@@ -1,5 +1,5 @@
 ==========================================================================
-               FinanPred : A Financial Predicion Suite  
+           == FinanPred : A Financial Predicion Suite ==                 
 ==========================================================================
 
 @author Rahul Dhodapkar (krishnakid)
@@ -11,7 +11,7 @@ hope that such a process could be automated and serve as a passive revenue
 stream.
 
 ==========================================================================
-               Technologies Used                              
+            == Technologies Used ==                           
 ==========================================================================
 
 The base of the suite will be written in Python, making heavy use of the
@@ -34,7 +34,7 @@ Python Packages:
 		pip install pymongo
 
 ==========================================================================
-               Data Sources and Input                                   
+            == Data Sources and Input ==                                  
 ==========================================================================
 
 Data is currently pulled from the Yahoo Finance RESTful API, available 
