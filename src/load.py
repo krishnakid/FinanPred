@@ -46,4 +46,5 @@ def loadHisData(bnd, syms):
 		"ignore" : ".csv"
 	}
 	r = requests.get(hisURL, params=data)
-	return r.text
+	return r.textps
+	
