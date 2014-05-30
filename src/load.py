@@ -31,37 +31,24 @@ def loadCurData(syms):
 
 # load historical stock data
 # 	bnd : range of time to obtain data for
-#	syms : a list of symbols to get data for
-def loadHisData(bnd, syms): 
-	retText = ""
+#	sym : a symbol to get data for
+
+def loadHisData(bnd, sym): 
 	((frm, frd, fry), (tom, tod, toy)) = bnd		# pattern matching
-	for s in syms:
-		print "========= LOADING {} ============" .format(s)
-		data = {
-			"s" : s,
-			"a" : frm - 1,
-			"b" : frd,
-			"c" : fry,
-			"d" : tom - 1,
-			"e" : tod,
-			"f" : toy,
-			"g" : "d",
-			"ignore" : ".csv"
-		}
-		r = requests.get(hisURL, params=data)
-		retText += r.text
-
+	print "========= LOADING {} ============" .format(sym)
+	data = {
+		"s" : sym,
+		"a" : frm - 1,
+		"b" : frd,
+		"c" : fry,
+		"d" : tom - 1,
+		"e" : tod,
+		"f" : toy,
+		"g" : "d",
+		"ignore" : ".csv"
+	}
+	r = requests.get(hisURL, params=data)
+	retText = "\n".join(r.text.split("\n")[1:])		# naive header strip.
 	return retText
-
-
-
-
-
-
-
-
-
-
-
 
 

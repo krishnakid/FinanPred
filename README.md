@@ -72,7 +72,11 @@ Historical stock data is currently being pulled from
 	http://ichart.finance.yahoo.com/table.csv?s=OXY&d=4&e=30&f=2014&g=d&a=11&b=31&c=1981&ignore=.csv
 
 It seems as though a direct call to the ichart will be sufficient to extract
-the information desired. 
+the information desired.  Information is returned in 
+
+	Date,Open,High,Low,Close,Volume,Adj Close
+
+Format 
 
 
 

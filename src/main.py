@@ -27,5 +27,14 @@ STOCKS = ["CMG",
 STOCK = ["OXY"]
 
 #print load.loadData(STOCKS)
-print load.loadHisData( ((3, 14, 2010),(8, 14, 2010)), STOCKS)
+print load.loadHisData( ((3, 14, 2010),(8, 14, 2010)), STOCK)
+
+# data vector loaded properly, now need to build neural net predictor.
+
+
+
+
+
+
+
 
