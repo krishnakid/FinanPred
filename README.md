@@ -78,6 +78,15 @@ the information desired.  Information is returned in
 
 Format 
 
+==========================================================================
+Data Cleaning and Missing Data                                 
+==========================================================================
+
+Since FinanPred is run on free, publically available financial data, it should
+come as no surprise than our information is likely to be incomplete.  In 
+order to account for missing information, data will be filled in with the last
+open entry in the database at storage time.
+
 
 
 

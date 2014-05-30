@@ -1,2 +1,7 @@
 .DS_Store
+
+# local data files
 data/*
+
+# compiled python files
+*.pyc			

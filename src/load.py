@@ -3,6 +3,7 @@
 import requests				# HTTP request library
 import json					# Python JSON library
 import cookielib			# Python library for cookies
+import datetime				# Python datetime library
 
 ########   load.py   ##################
 #
@@ -20,7 +21,6 @@ hisURL = "http://ichart.finance.yahoo.com/table.csv"
 
 # load current stock data
 # 	syms : a list of symbols to get data for
-
 def loadCurData(syms):
 	data = {
 		"s" : "+".join(syms),
@@ -30,10 +30,12 @@ def loadCurData(syms):
 	return r.text
 
 # load historical stock data
-# 	bnd : range of time to obtain data for
+# 	bnd : range of datetime objects to obtain data from
 #	sym : a symbol to get data for
 def loadHisData(bnd, sym): 
-	((frm, frd, fry), (tom, tod, toy)) = bnd		# pattern matching
+	(fr, to) = bnd
+	((frm, frd, fry), (tom, tod, toy)) = ((fr.month, fr.day, fr.year),
+										  (to.month, to.day, to.year))
 	print "========= LOADING {} ============" .format(sym)
 	data = {
 		"s" : sym,
