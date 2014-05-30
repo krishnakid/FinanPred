@@ -32,7 +32,6 @@ def loadCurData(syms):
 # load historical stock data
 # 	bnd : range of time to obtain data for
 #	sym : a symbol to get data for
-
 def loadHisData(bnd, sym): 
 	((frm, frd, fry), (tom, tod, toy)) = bnd		# pattern matching
 	print "========= LOADING {} ============" .format(sym)

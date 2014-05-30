@@ -2,6 +2,13 @@
 
 import store
 import load
+from consts import *
+
+import numpy			# Numerical Python Library
+import csv				# Python CSV Library
+import StringIO			# Read strings as Files
+
+
 
 ###### DEFINE constants ##########
 
@@ -27,7 +34,13 @@ STOCKS = ["CMG",
 STOCK = ["OXY"]
 
 #print load.loadData(STOCKS)
-print load.loadHisData( ((3, 14, 2010),(8, 14, 2010)), STOCK)
+tstData = load.loadHisData( ((3, 14, 2010),(8, 14, 2010)), STOCK)
+
+tsFile = StringIO.StringIO(tstData)
+# load into numpy-readable matrix.
+res = numpy.loadtxt(tsFile,delimiter=",",skiprows=1,usecols=(OPEN_CL,
+								HIGH_CL, LOW_CL, CLOSE_CL, VOLUME_CL))
+print res
 
 # data vector loaded properly, now need to build neural net predictor.
 
