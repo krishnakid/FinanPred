@@ -19,7 +19,7 @@ numpy package.  Time allowing, certain core components may be rewritten
 in C.
 
 General Technologies:
-	
+
 	MongoDB:
 		brew update
 		brew install mongodb
@@ -27,6 +27,7 @@ General Technologies:
 			mongod --dbpath <path to data directory>
 
 Python Packages:
+
 	requests:
 		pip install requests
 
@@ -87,17 +88,8 @@ come as no surprise than our information is likely to be incomplete.  In
 order to account for missing information, data will be filled in with the last
 open entry in the database at storage time.
 
-
-
-
-
-
-
-
-
-
-
-
-
+Data is returned by Yahoo in recent-to-past order, which means that data 
+will be filled in by the *next* entry in sequence (the next available day).
+This might have some bearing on boundary conditions, so recording it here.
 
 

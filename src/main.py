@@ -53,13 +53,13 @@ tsFile = StringIO.StringIO(tstData)
 
 store.storeHistData(tsFile, STOCK)				# test storage capabilities
 
-res = numpy.loadtxt(tsFile, delimiter=",", skiprows=0, usecols=(OPEN_CL,
-								HIGH_CL, LOW_CL, CLOSE_CL, VOLUME_CL))
+#res = numpy.loadtxt(tsFile, delimiter=",", skiprows=0, usecols=(OPEN_CL,
+#								HIGH_CL, LOW_CL, CLOSE_CL, VOLUME_CL))
 
 # res now has a string containing a set of historical information.
 # we may load this information into our mongo datastore.
-(rows, cols) = res.shape
-print "[{} x {}] entries found!".format(rows, cols)
+#(rows, cols) = res.shape
+#print "[{} x {}] entries found!".format(rows, cols)
 print "================= TEST COMPLETE ==================="
 
 # data vector loaded properly, now need to build neural net predictor.

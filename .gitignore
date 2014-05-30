@@ -5,3 +5,4 @@ data/*
 
 # compiled python files
 *.pyc			
+src/*.pyc
