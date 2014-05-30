@@ -33,9 +33,23 @@ Python Packages:
 	pymongo:
 		pip install pymongo
 
+
+==========================================================================
+Points on Data Formatting 
+==========================================================================
+
+We will strive to adhere to a single standard representation of stock prices
+during the development cycle. As the first major format encountered, the
+majority of information will be passed in the Metastock data format
+(Information on this format at the link below):
+
+	http://www.stockhistoricaldata.com/historical-data-formats/metastock-data-format
+
 ==========================================================================
 Data Sources and Input                                  
 ==========================================================================
+
+######  Current Stock Information  #######################################
 
 Data is currently pulled from the Yahoo Finance RESTful API, available 
 through 
@@ -49,5 +63,28 @@ An unofficial set of documentation for this service is available at:
 Unofficial documentation for the historical quote service is at:
 
 	https://code.google.com/p/yahoo-finance-managed/wiki/csvHistQuotesDownload
-	
+
+######  Historical Stock Information  ####################################
+
+Historical stock data is currently being pulled from
+
+	http://finance.yahoo.com/q/hp?s=OXY
+	http://ichart.finance.yahoo.com/table.csv?s=OXY&d=4&e=30&f=2014&g=d&a=11&b=31&c=1981&ignore=.csv
+
+It seems as though a direct call to the ichart will be sufficient to extract
+the information desired. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

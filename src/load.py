@@ -2,6 +2,7 @@
 
 import requests				# HTTP request library
 import json					# Python JSON library
+import cookielib			# Python library for cookies
 
 ########   load.py   ##################
 #
@@ -13,7 +14,7 @@ import json					# Python JSON library
 
 curURL = "http://finance.yahoo.com/d/quotes.csv"
 
-hisURL = "http://ichart.yahoo.com/table.csv?"
+hisURL = "http://ichart.finance.yahoo.com/table.csv"
 
 ####### define METHODS   ##############
 
@@ -21,7 +22,7 @@ hisURL = "http://ichart.yahoo.com/table.csv?"
 # 	syms : a list of symbols to get data for
 
 def loadCurData(syms):
-	data={
+	data = {
 		"s" : "+".join(syms),
 		"f" : "snd1l1yr"
 	}
@@ -31,20 +32,36 @@ def loadCurData(syms):
 # load historical stock data
 # 	bnd : range of time to obtain data for
 #	syms : a list of symbols to get data for
-
-def loadHisData(bnd, syms):
+def loadHisData(bnd, syms): 
+	retText = ""
 	((frm, frd, fry), (tom, tod, toy)) = bnd		# pattern matching
-	data={
-		"s" : "+".join(syms),
-		"a" : frm - 1,
-		"b" : frd,
-		"c" : fry,
-		"d" : tom - 1,
-		"e" : tod,
-		"f" : toy,
-		"g" : "w",
-		"ignore" : ".csv"
-	}
-	r = requests.get(hisURL, params=data)
-	return r.textps
-	
+	for s in syms:
+		print "========= LOADING {} ============" .format(s)
+		data = {
+			"s" : s,
+			"a" : frm - 1,
+			"b" : frd,
+			"c" : fry,
+			"d" : tom - 1,
+			"e" : tod,
+			"f" : toy,
+			"g" : "d",
+			"ignore" : ".csv"
+		}
+		r = requests.get(hisURL, params=data)
+		retText += r.text
+
+	return retText
+
+
+
+
+
+
+
+
+
+
+
+
+
