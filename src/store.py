@@ -57,6 +57,7 @@ def storeEntry(vec, sym):
 # 	sym : the symbol to store data under
 def storeHistData(data, sym):
 	print "store.py :: Opening MongoDB Connection"
+	insertCount = 0
 	openClient()
 	lastDate = None;
 	lastData = None;
@@ -67,17 +68,24 @@ def storeHistData(data, sym):
 		if lastDate is None:
 			lastDate = cDate						# set date counter.
 			lastData = vals							# set value vector. 
-#		elif (lastDate - cDate) > datetime.timedelta(days=1)):
-#			# fill in missing data
-#			tDate = cDate + datetime.timedelta(days=1)
-#			while (tDate != lastDate):
-#				tvals = vals[:]
-#				tvals[DATE_CL] = tDate
-#				storeEntry(tvals, sym)				# store temporary vector
-#				tDate += datetime.timedelta(days=1)	# increment time
-		else:
-			storeEntry(vals, sym)
+		elif (lastDate - cDate > datetime.timedelta(days=1)):
+			# fill in missing data
+			print "store.py :: day differential {}".format(lastDate - cDate)
+			tDate = cDate + datetime.timedelta(days=1)
+			while (tDate != lastDate):
+				#print "patching {} for {}".format(tDate, sym)
+				tvals = vals[:]
+				tvals[DATE_CL] = tDate
+				insertCount += 1
+				storeEntry(tvals, sym)				# store temporary vector
+				tDate += datetime.timedelta(days=1)	# increment time
+		insertCount += 1
+		storeEntry(vals, sym)
+		
+		lastDate = cDate
+		lastData = vals
 		print "{} for {}".format(cDate, sym)
 	print "store.py :: Closing MongoDB Connection"
+	print "store.py :: {} entries stored".format(insertCount)
 	closeClient()
 

@@ -53,6 +53,7 @@ tsFile = StringIO.StringIO(tstData)
 
 store.storeHistData(tsFile, STOCK)				# test storage capabilities
 
+
 #res = numpy.loadtxt(tsFile, delimiter=",", skiprows=0, usecols=(OPEN_CL,
 #								HIGH_CL, LOW_CL, CLOSE_CL, VOLUME_CL))
 
