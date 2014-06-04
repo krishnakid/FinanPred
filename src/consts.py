@@ -8,6 +8,9 @@
 #	- Data to Column Mapping (for main stock format)
 #
 
+
+########  DEFINE Data Structure Constants  #####
+
 DATE_CL = 0
 OPEN_CL = 1
 HIGH_CL = 2
@@ -15,3 +18,12 @@ LOW_CL = 3
 CLOSE_CL = 4
 VOLUME_CL = 5
 ADJ_CLOSE_CL = 6
+
+########  DEFINE Database Constants  #####
+
+MDB_HIST_COLLECTION = "histdata"
+
+
+
+
+

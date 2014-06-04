@@ -34,7 +34,6 @@ STOCK = ["OXY"]
 
 ###### DEFINE utility functions ##########
 
-
 # builds a start-stop tuple for the load functions
 # 	st : a starting datetime
 #	dur : a number of days to build the duration for
@@ -45,13 +44,23 @@ def buildInterval(st, dur):
 ###### EXECUTE main code ##########
 
 #print load.loadData(STOCKS)
-tstData = load.loadHisData(buildInterval(datetime.date.today() - 
+tstData = load.loadExtHistData(buildInterval(datetime.date.today() - 
 									     datetime.timedelta(days=800), 500), STOCK)
 
 tsFile = StringIO.StringIO(tstData)
 # load into numpy-readable matrix.
 
-store.storeHistData(tsFile, STOCK)				# test storage capabilities
+store.storeHistData(tsFile, STOCK)			# test storage capabilities
+
+testst = datetime.datetime.combine(datetime.date.today() - datetime.timedelta(days=400),
+							datetime.datetime.min.time())
+
+print "================== Testing Load from Mongo ==================="
+
+load.loadHistData((testst, testst + datetime.timedelta(days=30)), STOCK)
+
+
+
 
 
 #res = numpy.loadtxt(tsFile, delimiter=",", skiprows=0, usecols=(OPEN_CL,

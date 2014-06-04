@@ -48,7 +48,7 @@ def storeEntry(vec, sym):
 		"close" : vec[CLOSE_CL],
 		"volume" : vec[VOLUME_CL]
 	}
-	db.historical_data.insert(entry)
+	db[MDB_HIST_COLLECTION].insert(entry)
 
 ######## DEFINE public functions #######
 
